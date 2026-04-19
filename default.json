@@ -1,0 +1,73 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  // Always disable the dependency dashboard.
+  "dependencyDashboard": false,
+
+  "extends": [
+    // https://docs.renovatebot.com/presets-config/#configbest-practices
+    "config:best-practices",
+    // https://docs.renovatebot.com/presets-helpers/#helperspingithubactiondigeststosemver
+    "helpers:pinGitHubActionDigestsToSemver"
+  ],
+
+  // Default range strategy for dependencies.
+  // NOTE: We override the range strategy from best-practices here (and below),
+  // because it results in exceedingly noisy updates to non-lockfile dependency files.
+  "rangeStrategy": "pin",
+
+  // We apply a default blanket cooldown of 7 days to all dependencies.
+  // "minimumReleaseAge": "7 days",
+
+  // "internalChecksFilter": "strict",
+
+  // PR settings.
+  // Our PRs are created immediately. We do this instead of not-pending because the latter
+  // makes Renovate wait an additional 24 hours before creating the PR when there are no checks.
+  "prCreation": "immediate",
+
+  // By default, Renovate will only create 2 PRs in any single hourly interval.
+  // But we only allow Renovate to create PRs between midnight and 4am on Monday
+  // in most of our repos, so this is not sufficient in general. Per the docs,
+  // 0 means "no limit": <https://docs.renovatebot.com/configuration-options/#prhourlylimit>
+  "prHourlyLimit": 0,
+
+  // Similarly, by default, Renovate will not create any new PRs if it already has 10 open
+  // on any repo, but that isn't generally what we want: we generally want dependency update PRs
+  // for all available dependencies. Per the docs, 0 means "no limit":
+  // <https://docs.renovatebot.com/configuration-options/#prconcurrentlimit>
+  "prConcurrentLimit": 0,
+
+  // Commit settings.
+  "commitHourlyLimit": 0,
+
+  "separateMajorMinor": false,
+
+  // These notifications are very noisy.
+  "suppressNotifications": ["prEditedNotification"],
+
+  // Lock file maintenance configuration
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["at any time"],
+    "automerge": true,
+    "automergeType": "branch",
+    "automergeStrategy": "rebase",
+    "ignoreTests": true
+  },
+
+  "packageRules": [
+    // All updates: automerge.
+    {
+      "matchUpdateTypes": ["*"],
+      "automerge": true,
+      "automergeType": "branch",
+      "automergeStrategy": "rebase",
+      "ignoreTests": true
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+    "vulnerabilityFixStrategy": "highest"
+  }
+}
