@@ -42,9 +42,16 @@
   "commitHourlyLimit": 0,
 
   "separateMajorMinor": false,
+  "semanticCommits": "enabled",
 
   // These notifications are very noisy.
   "suppressNotifications": ["prEditedNotification"],
+
+  // Automerge settings.
+  // We want to be able to use Renovate's automerge features, so we set the timezone to Shanghai time.
+  "timezone": "Asia/Shanghai",
+  "schedule": ["at any time"],
+  "automergeSchedule": ["at any time"],
 
   // Lock file maintenance configuration
   "lockFileMaintenance": {
@@ -57,7 +64,6 @@
   },
 
   "packageRules": [
-    // All updates: automerge.
     {
       "matchUpdateTypes": ["*"],
       "automerge": true,
