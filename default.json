@@ -13,8 +13,8 @@
 
   // Default range strategy for dependencies.
   // NOTE: We override the range strategy from best-practices here (and below),
-  // because it results in exceedingly noisy updates to non-lockfile dependency files.
   "rangeStrategy": "pin",
+  "separateMajorMinor": false,
 
   // We apply a default blanket cooldown of 7 days to all dependencies.
   // "minimumReleaseAge": "7 days",
@@ -40,8 +40,6 @@
 
   // Commit settings.
   "commitHourlyLimit": 0,
-
-  "separateMajorMinor": false,
   "semanticCommits": "enabled",
 
   // These notifications are very noisy.
@@ -74,6 +72,11 @@
   ],
   "vulnerabilityAlerts": {
     "enabled": true,
-    "vulnerabilityFixStrategy": "highest"
+    "vulnerabilityFixStrategy": "highest",
+    "schedule": ["at any time"],
+    "automerge": true,
+    "automergeType": "branch",
+    "automergeStrategy": "rebase",
+    "ignoreTests": true
   }
 }
