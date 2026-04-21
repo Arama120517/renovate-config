@@ -11,15 +11,8 @@
     "helpers:pinGitHubActionDigestsToSemver"
   ],
 
-  // Default range strategy for dependencies.
-  // NOTE: We override the range strategy from best-practices here (and below),
   "rangeStrategy": "pin",
   "separateMajorMinor": false,
-
-  // We apply a default blanket cooldown of 7 days to all dependencies.
-  // "minimumReleaseAge": "7 days",
-
-  // "internalChecksFilter": "strict",
 
   // PR settings.
   // Our PRs are created immediately. We do this instead of not-pending because the latter
@@ -48,7 +41,7 @@
   // Automerge settings.
   // We want to be able to use Renovate's automerge features, so we set the timezone to Shanghai time.
   "timezone": "Asia/Shanghai",
-  "schedule": ["at any time"],
+  "schedule": ["at any time", "* 0-4 * * *"],
   "automergeSchedule": ["at any time"],
 
   // Lock file maintenance configuration
