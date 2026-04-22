@@ -39,12 +39,12 @@
   "suppressNotifications": ["prEditedNotification"],
 
   // Automerge settings.
-  // We want to be able to use Renovate's automerge features, so we set the timezone to Shanghai time.
   "timezone": "Asia/Shanghai",
   "schedule": ["at any time", "* 0-4 * * *"],
   "automergeSchedule": ["at any time"],
 
-  // Lock file maintenance configuration
+  "pinDigests": true,
+
   "lockFileMaintenance": {
     "enabled": true,
     "schedule": ["at any time"],
@@ -53,7 +53,6 @@
     "automergeStrategy": "rebase",
     "ignoreTests": true
   },
-
   "packageRules": [
     {
       "matchUpdateTypes": ["*"],
