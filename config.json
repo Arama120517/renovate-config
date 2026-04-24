@@ -2,6 +2,7 @@
   // "$schema": "https://docs.renovatebot.com/renovate-schema.json",
 
   // https://docs.renovatebot.com/self-hosted-configuration
+  "onboarding": false,
   "platform": "github",
   "repositories": [
     "Arama120517/renovate-config",
