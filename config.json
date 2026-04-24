@@ -1,5 +1,17 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  // "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
+  // Global settings.
+  "onboarding": false,
+  "requireConfig": "ignored",
+  "platform": "github",
+  "repositories": [
+    "Arama120517/renovate-config",
+    "Arama120517/proxy",
+    "Arama120517/scoop-bucket",
+    "Arama120517/scoop-proxy-cn"
+  ],
+  "repositoryCache": "enabled",
 
   // Always disable the dependency dashboard.
   "dependencyDashboard": false,
