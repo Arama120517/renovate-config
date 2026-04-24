@@ -1,8 +1,7 @@
 {
   // "$schema": "https://docs.renovatebot.com/renovate-schema.json",
 
-  // Global settings.
-  "onboarding": false,
+  // https://docs.renovatebot.com/self-hosted-configuration
   "platform": "github",
   "repositories": [
     "Arama120517/renovate-config",
@@ -10,8 +9,8 @@
     "Arama120517/scoop-bucket",
     "Arama120517/scoop-proxy-cn"
   ],
-  "repositoryCache": "enabled",
 
+  // https://docs.renovatebot.com/configuration-options
   // Always disable the dependency dashboard.
   "dependencyDashboard": false,
 
@@ -50,7 +49,6 @@
   "suppressNotifications": ["prEditedNotification"],
 
   // Automerge settings.
-  "timezone": "Asia/Shanghai",
   "schedule": ["at any time"],
   "automergeSchedule": ["at any time"],
 
