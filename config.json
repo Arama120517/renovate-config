@@ -3,7 +3,6 @@
 
   // Global settings.
   "onboarding": false,
-  "requireConfig": "ignored",
   "platform": "github",
   "repositories": [
     "Arama120517/renovate-config",
@@ -52,7 +51,7 @@
 
   // Automerge settings.
   "timezone": "Asia/Shanghai",
-  "schedule": ["at any time", "* 0-4 * * *"],
+  "schedule": ["at any time"],
   "automergeSchedule": ["at any time"],
 
   "pinDigests": true,
