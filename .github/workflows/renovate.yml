@@ -15,6 +15,13 @@ permissions:
   contents: write
   pull-requests: write
 
+env:
+  repositories: |
+    Arama120517/renovate-config
+    Arama120517/proxy
+    Arama120517/scoop-bucket
+    Arama120517/scoop-proxy-cn
+
 jobs:
   renovate:
     runs-on: ubuntu-latest
@@ -26,6 +33,7 @@ jobs:
         with:
           client-id: ${{ vars.APP_CLIENT_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          repositories: ${{ env.repositories }}
 
       - uses: actions/cache/restore@v5
         with:
@@ -38,6 +46,7 @@ jobs:
           configurationFile: config.json
         env:
           LOG_LEVEL: "debug"
+          RENOVATE_REPOSITORIES: ${{ env.repositories }}
 
       - uses: actions/cache/save@v5
         with:
