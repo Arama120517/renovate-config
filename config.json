@@ -1,8 +1,6 @@
 {
-  // "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-
-  // https://docs.renovatebot.com/self-hosted-configuration
   "onboarding": false,
+  "requireConfig": "ignored",
   "platform": "github",
   "repositories": [
     "Arama120517/renovate-config",
@@ -10,75 +8,7 @@
     "Arama120517/scoop-bucket",
     "Arama120517/scoop-proxy-cn"
   ],
-
-  // https://docs.renovatebot.com/configuration-options
-  // Always disable the dependency dashboard.
-  "dependencyDashboard": false,
-
   "extends": [
-    // https://docs.renovatebot.com/presets-config/#configbest-practices
-    "config:best-practices",
-    // https://docs.renovatebot.com/presets-helpers/#helperspingithubactiondigeststosemver
-    "helpers:pinGitHubActionDigestsToSemver"
-  ],
-
-  "rangeStrategy": "pin",
-  "separateMajorMinor": false,
-
-  // PR settings.
-  // Our PRs are created immediately. We do this instead of not-pending because the latter
-  // makes Renovate wait an additional 24 hours before creating the PR when there are no checks.
-  "prCreation": "immediate",
-
-  // By default, Renovate will only create 2 PRs in any single hourly interval.
-  // But we only allow Renovate to create PRs between midnight and 4am on Monday
-  // in most of our repos, so this is not sufficient in general. Per the docs,
-  // 0 means "no limit": <https://docs.renovatebot.com/configuration-options/#prhourlylimit>
-  "prHourlyLimit": 0,
-
-  // Similarly, by default, Renovate will not create any new PRs if it already has 10 open
-  // on any repo, but that isn't generally what we want: we generally want dependency update PRs
-  // for all available dependencies. Per the docs, 0 means "no limit":
-  // <https://docs.renovatebot.com/configuration-options/#prconcurrentlimit>
-  "prConcurrentLimit": 0,
-
-  // Commit settings.
-  "commitHourlyLimit": 0,
-  "semanticCommits": "enabled",
-
-  // These notifications are very noisy.
-  "suppressNotifications": ["prEditedNotification"],
-
-  // Automerge settings.
-  "schedule": ["at any time"],
-  "automergeSchedule": ["at any time"],
-
-  "pinDigests": true,
-
-  "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": ["at any time"],
-    "automerge": true,
-    "automergeType": "branch",
-    "automergeStrategy": "rebase",
-    "ignoreTests": true
-  },
-  "packageRules": [
-    {
-      "matchUpdateTypes": ["*"],
-      "automerge": true,
-      "automergeType": "branch",
-      "automergeStrategy": "rebase",
-      "ignoreTests": true
-    }
-  ],
-  "vulnerabilityAlerts": {
-    "enabled": true,
-    "vulnerabilityFixStrategy": "highest",
-    "schedule": ["at any time"],
-    "automerge": true,
-    "automergeType": "branch",
-    "automergeStrategy": "rebase",
-    "ignoreTests": true
-  }
+    "github>Arama120517/renovate-config"
+  ]
 }
