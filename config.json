@@ -2,13 +2,12 @@
   "onboarding": false,
   "requireConfig": "ignored",
   "platform": "github",
+  "forkProcessing": "enabled",
   "repositories": [
     "Arama120517/renovate-config",
     "Arama120517/proxy",
     "Arama120517/scoop-bucket",
     "Arama120517/scoop-proxy-cn"
   ],
-  "extends": [
-    "github>Arama120517/renovate-config"
-  ]
+  "extends": ["github>Arama120517/renovate-config"]
 }

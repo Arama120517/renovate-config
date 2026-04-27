@@ -10,10 +10,7 @@
     "replacements:all",
     "workarounds:all",
     "helpers:forgejoDigestChangelogs",
-    "helpers:giteaDigestChangelogs",
     "helpers:githubDigestChangelogs",
-    "helpers:goXPackagesChangelogLink",
-    "helpers:goXPackagesNameLink",
     // https://docs.renovatebot.com/presets-config/#configbest-practices
     ":configMigration",
     "abandonments:recommended",
@@ -24,49 +21,32 @@
     // https://docs.renovatebot.com/presets-default/#disabledependencydashboard
     ":disableDependencyDashboard",
     // https://docs.renovatebot.com/presets-default/#pinversions
-    ":pinVersions"
+    ":pinVersions",
+    // https://docs.renovatebot.com/presets-default/#disableratelimiting
+    ":disableRateLimiting",
+    // https://docs.renovatebot.com/presets-default/#primmediately
+    ":prImmediately",
+    // https://docs.renovatebot.com/presets-default/#rebasestaleprs
+    ":rebaseStalePrs",
+    // https://docs.renovatebot.com/presets-default/#enablevulnerabilityalerts
+    ":enableVulnerabilityAlerts",
+    // https://docs.renovatebot.com/presets-default/#updatenotscheduled
+    ":updateNotScheduled"
   ],
 
   // Pin dependencies.
   "pinDigests": true,
 
-  // PR settings.
-  // Our PRs are created immediately. We do this instead of not-pending because the latter
-  // makes Renovate wait an additional 24 hours before creating the PR when there are no checks.
-  "prCreation": "immediate",
-
-  // By default, Renovate will only create 2 PRs in any single hourly interval.
-  // But we only allow Renovate to create PRs between midnight and 4am on Monday
-  // in most of our repos, so this is not sufficient in general. Per the docs,
-  // 0 means "no limit": <https://docs.renovatebot.com/configuration-options/#prhourlylimit>
-  "prHourlyLimit": 0,
-
-  // Similarly, by default, Renovate will not create any new PRs if it already has 10 open
-  // on any repo, but that isn't generally what we want: we generally want dependency update PRs
-  // for all available dependencies. Per the docs, 0 means "no limit":
-  // <https://docs.renovatebot.com/configuration-options/#prconcurrentlimit>
-  "prConcurrentLimit": 0,
-
-  // Commit settings.
-  "commitHourlyLimit": 0,
-
   // These notifications are very noisy.
   "suppressNotifications": ["prEditedNotification"],
 
   // Automerge settings.
-  "automergeSchedule": ["at any time"],
   "automerge": true,
+  "automergeSchedule": ["at any time"],
   "automergeType": "branch",
   "automergeStrategy": "rebase",
-  "ignoreTests": true,
 
   "lockFileMaintenance": {
-    "enabled": true,
-    "schedule": ["at any time"]
-  },
-  "vulnerabilityAlerts": {
-    "enabled": true,
-    "vulnerabilityFixStrategy": "highest",
-    "schedule": ["at any time"]
+    "enabled": true
   }
 }
