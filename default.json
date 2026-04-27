@@ -28,6 +28,8 @@
     ":prImmediately",
     // https://docs.renovatebot.com/presets-default/#rebasestaleprs
     ":rebaseStalePrs",
+    // https://docs.renovatebot.com/presets-default/#skipstatuschecks
+    ":skipStatusChecks",
     // https://docs.renovatebot.com/presets-default/#enablevulnerabilityalerts
     ":enableVulnerabilityAlerts",
     // https://docs.renovatebot.com/presets-default/#updatenotscheduled
