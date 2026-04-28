@@ -34,7 +34,9 @@ jobs:
         id: restore
         with:
           path: /tmp/renovate/cache
-          key: renovate
+          key: none
+          restore-keys: |
+            renovate-
 
       - if: steps.restore.outputs.cache-hit == 'true'
         run: sudo chown -R 12021:0 /tmp/renovate/
@@ -49,4 +51,4 @@ jobs:
       - uses: actions/cache/save@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
         with:
           path: /tmp/renovate/cache
-          key: renovate
+          key: renovate-${{ github.run_id }}
