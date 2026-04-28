@@ -3,7 +3,6 @@
   "requireConfig": "ignored",
   "platform": "github",
   "forkProcessing": "enabled",
-  "gitAuthor": "Renovate Bot <bot@renovateapp.com>",
   "repositories": [
     "Arama120517/renovate-config",
     "Arama120517/proxy",
