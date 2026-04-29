@@ -1,14 +1,64 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-global-schema.json",
+
+  // https://docs.renovatebot.com/self-hosted-configuration/
   "onboarding": false,
   "requireConfig": "ignored",
   "platform": "github",
   "forkProcessing": "enabled",
-  "repositories": [
-    "Arama120517/renovate-config",
-    "Arama120517/proxy",
-    "Arama120517/scoop-bucket",
-    "Arama120517/scoop-proxy-cn"
-  ],
+  "autodiscover": true,
   "repositoryCache": "enabled",
-  "extends": ["github>Arama120517/renovate-config"]
+
+  // https://docs.renovatebot.com/configuration-options/
+  "extends": [
+    // https://docs.renovatebot.com/presets-config/#configrecommended
+    ":semanticPrefixFixDepsChoreOthers",
+    ":ignoreModulesAndTests",
+    "group:monorepos",
+    "group:recommended",
+    "mergeConfidence:age-confidence-badges",
+    "replacements:all",
+    "workarounds:all",
+    "helpers:forgejoDigestChangelogs",
+    "helpers:githubDigestChangelogs",
+    // https://docs.renovatebot.com/presets-config/#configbest-practices
+    ":configMigration",
+    "abandonments:recommended",
+    // https://docs.renovatebot.com/presets-helpers/#helperspingithubactiondigeststosemver
+    "helpers:pinGitHubActionDigestsToSemver",
+    // https://docs.renovatebot.com/presets-default/#semanticcommits
+    ":semanticCommits",
+    // https://docs.renovatebot.com/presets-default/#disabledependencydashboard
+    ":disableDependencyDashboard",
+    // https://docs.renovatebot.com/presets-default/#pinversions
+    ":pinVersions",
+    // https://docs.renovatebot.com/presets-default/#disableratelimiting
+    ":disableRateLimiting",
+    // https://docs.renovatebot.com/presets-default/#primmediately
+    ":prImmediately",
+    // https://docs.renovatebot.com/presets-default/#rebasestaleprs
+    ":rebaseStalePrs",
+    // https://docs.renovatebot.com/presets-default/#skipstatuschecks
+    ":skipStatusChecks",
+    // https://docs.renovatebot.com/presets-default/#enablevulnerabilityalerts
+    ":enableVulnerabilityAlerts",
+    // https://docs.renovatebot.com/presets-default/#updatenotscheduled
+    ":updateNotScheduled"
+  ],
+
+  // Pin dependencies.
+  "pinDigests": true,
+
+  // These notifications are very noisy.
+  "suppressNotifications": ["prEditedNotification"],
+
+  // Automerge settings.
+  "automerge": true,
+  "automergeSchedule": ["at any time"],
+  "automergeType": "branch",
+  "automergeStrategy": "rebase",
+
+  "lockFileMaintenance": {
+    "enabled": true
+  }
 }
